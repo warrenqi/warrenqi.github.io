@@ -3,6 +3,30 @@ layout: default
 title: Warren's notes
 ---
 
+<h2>Hot topics, sorted by <a href="https://github.com/warrenqi/lucene-lyrics-www">TFIDF using Lucene:</a></h2>
+<!-- mvn exec:java -Dexec.mainClass="com.distraction.lyrics.TopWordsJekyllBlog" -Dexec.args="-index index -docs /home/warren/code/warrenqi.github.io/_posts/" -->
+
+<b>f1:</b>
+<a href="{{ site.baseurl }}{% post_url 2020-03-29-google-f1-2013 %}">[1]</a>
+<b>spanner:</b>
+<a href="{{ site.baseurl }}{% post_url 2020-03-29-google-f1-2013 %}">[1]</a>
+<b>lucene:</b>
+<a href="{{ site.baseurl }}{% post_url 2020-04-10-apache-lucene-4 %}">[1]</a>
+<b>segments:</b>
+<a href="{{ site.baseurl }}{% post_url 2020-04-10-apache-lucene-4 %}">[1]</a>
+<b>transactions:</b>
+<a href="{{ site.baseurl }}{% post_url 2020-03-29-google-f1-2013 %}">[1]</a>
+<b>index:</b>
+<a href="{{ site.baseurl }}{% post_url 2020-04-10-apache-lucene-4 %}">[1]</a>
+<a href="{{ site.baseurl }}{% post_url 2020-03-29-google-f1-2013 %}">[2]</a>
+<b>request:</b>
+<a href="{{ site.baseurl }}{% post_url 2020-03-28-tail-at-scale %}">[1]</a>
+
+
+
+<h1></h1>
+<br>
+
 <!-- This loops through the paginated posts -->
 {% for post in paginator.posts %}
   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
