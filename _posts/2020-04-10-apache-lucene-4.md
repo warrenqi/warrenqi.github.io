@@ -5,10 +5,6 @@ date:   2020-04-10
 categories:
 ---
 
-
-**Apache Lucene 4.0**
-============================================
-
 Original paper [http://opensearchlab.otago.ac.nz/paper_10.pdf](http://opensearchlab.otago.ac.nz/paper_10.pdf)
 
 ## Summary

@@ -1,14 +1,11 @@
 ---
 layout: post
-title:  "Partition Data Across (PAX) reading notes"
+title:  "Weaving Relations for Cache Performance (Partition Data Across - PAX) - reading notes"
 date:   2020-11-06
 categories:
 ---
 
-
-
-**Weaving Relations for Cache Performance (Partition Attributes Across, PAX)**
-=====================================================================
+Paper link: [https://research.cs.wisc.edu/multifacet/papers/vldb01_pax.pdf](https://research.cs.wisc.edu/multifacet/papers/vldb01_pax.pdf)
 
 Paper published: 2001
 

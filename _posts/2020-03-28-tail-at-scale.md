@@ -5,9 +5,6 @@ date:   2020-03-28
 categories:
 ---
 
-**The Tail at Scale -- Google**
-============================================
-
 Original paper [https://research.google/pubs/pub40801/](https://research.google/pubs/pub40801/)
 
 ## Summary

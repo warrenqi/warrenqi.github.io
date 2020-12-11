@@ -5,11 +5,6 @@ date:   2020-04-19
 categories:
 ---
 
-
-**Summarizing documents using TfIdf and Lucene**
-============================================
-
-
 ## Summary
 
 To follow up Lucene, I have a simple use case: given a corpus of documents, e.g. an artist's most popular songs, a collection of notes, or a blog website such as this one, I can compute the classic TfIdf to get a quick summary of "most descriptive" words in that corpus.

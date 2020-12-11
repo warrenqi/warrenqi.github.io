@@ -5,10 +5,7 @@ date:   2020-09-04
 categories:
 ---
 
-
-**Amazon Aurora Reading Notes**
-============================================
-
+Paper link:[https://www.allthingsdistributed.com/files/p1041-verbitski.pdf](https://www.allthingsdistributed.com/files/p1041-verbitski.pdf)
 
 ## Summary
 
@@ -56,7 +53,7 @@ Is the slightly lower quorum requirement for read to help make recovery faster? 
 
 1. MySQL issues multiple concurrent local disk writes, before it issues these multiple writes across the network to a read replica, which then issues its own set of multiple local writes.
 
-2. These include: the redo log (the diff between before-page and after-page), the statement binlog, the modified data pages, a second temp write (called a double-write, a good description here https://www.percona.com/blog/2006/08/04/innodb-double-write/ and here http://enjoydatabases.blogspot.com/2016/08/innodb-doublewrite-buffer.html ) to prevent torn data pages, and the metadata files.
+2. These include: the redo log (the diff between before-page and after-page), the statement binlog, the modified data pages, a second temp write (called a double-write, a good description here [https://www.percona.com/blog/2006/08/04/innodb-double-write/](https://www.percona.com/blog/2006/08/04/innodb-double-write/) and here [http://enjoydatabases.blogspot.com/2016/08/innodb-doublewrite-buffer.html](http://enjoydatabases.blogspot.com/2016/08/innodb-doublewrite-buffer.html) ) to prevent torn data pages, and the metadata files.
 
 3. The traditional MySQL replication, when operated in a distributed environment, is akin to a 4/4 quorum.
 

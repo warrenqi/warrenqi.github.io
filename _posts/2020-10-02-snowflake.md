@@ -6,10 +6,6 @@ categories:
 ---
 
 
-**Snowflake Data Warehouse Reading Notes**
-============================================
-
-
 ## Summary
 
 Snowflake (2016) is a cloud-native data warehouse that's optimized for large analytical workloads, and provides ACID transactions, over structured and semi-structured data. One key innovation Snowflake offers is what it calls its "multi-cluster, shared data" architecture which improves upon the shared-nothing architecture. Within this blueprint, this paper talks about the three major components: (1) the data storage, (2) the elastic Virtual Warehouse, (3) the central coordination and management system called Cloud Services.
@@ -54,6 +50,8 @@ First we critique the popular layout for high performance data warehouse systems
 
 These points are tolerable in an onprem system, as is the case with Presto. But in the cloud, node failures are more frequent and performance can vary more significantly. And as a product offering, Snowflake needed to bring online upgrades as a capabiilty. Thus, Snowflake separates storage and compute with two loosely coupled, independently scalable sub-systems: **Snowflake has a custom built, caching, shared-nothing Compute engine, and Storage is outsourced to Amazon S3.**
 
+I now think this is brilliant for two implications - for (1) scale, and (2) business model. For 1, by simply outsourcing the underlying file block storage to S3, Snowflake can effectively "write-once, query many" by almost infinitely scaling up the number of query nodes attached to read off S3, and outsource the problem of getting arbitrarily large read throughput. For 2, this cost is effectively passed onto the customer, and Snowflake can simply send an invoice for the increased query performance.
+
 ## S3. Architecture
 
 There are 3 major components:
@@ -92,6 +90,8 @@ Here's an interesting insight: Snowflake query optimizer/coordinator "remembers"
 >"To improve the hit rate and avoid redundant caching of individual table files across worker nodes of a VW, the query optimizer assigns input file sets to worker nodes using consistent hashing over table file names [31]. Subsequent or concurrent queries accessing the same table file will therefore do this on the same worker node."
 
 This technique allows Snowflake to avoid eagerly replacing cache contents when a node fails, or the VW resizes - the underlying node LRU cache will eventually correct itself. This simplifies the system.
+
+Compare and contrast the cache replacement "eagerness" with Facebook TAO -- they are opposites of each other.
 
 When one Snowflake VW worker finishes its work early, it can _file steal_ additional work from peer workers for the duration and scope of a current query. This helps alleviate straggler nodes.
 

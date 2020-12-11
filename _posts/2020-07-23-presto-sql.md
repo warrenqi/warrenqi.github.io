@@ -1,16 +1,15 @@
 ---
 layout: post
-title:  "Presto SQL reading notes"
+title:  "Presto: SQL on Everything - reading notes"
 date:   2020-07-23
 categories:
 ---
 
-**Presto: SQL on Everything -- Reading Notes**
-===============================================
-
 ## Summary
 
 Company: Facebook
+
+Paper link: [https://prestosql.io/Presto_SQL_on_Everything.pdf](https://prestosql.io/Presto_SQL_on_Everything.pdf)
 
 Paper published: 2018
 
