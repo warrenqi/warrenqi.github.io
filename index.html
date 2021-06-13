@@ -30,6 +30,7 @@ title: Warren's notes
 
 <!-- This loops through the paginated posts -->
 {% for post in paginator.posts %}
+  <p></p>
   <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
   <p class="author">
     <span class="date">{{ post.date }}</span>
@@ -37,6 +38,10 @@ title: Warren's notes
   <div class="content">
     {{ post.content }}
   </div>
+  <p></p>
+  <br>
+  <br>
+  <br>
 {% endfor %}
 
 <!-- Pagination links -->
