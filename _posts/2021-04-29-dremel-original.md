@@ -111,10 +111,10 @@ Record reassembly is done via the FSM described in the paper. Apache Parquet has
 ## S5-6. Query Language and Execution
 There are several advantages of converting the records into blocks of columnar physical format:
 
-1. At the macro level: separate fields can be stored and processed on separate machines.
-2. At the single machine level: sequential reads and writes.
+1. At the macro level: separate fields can be stored and processed on separate machines, allowing parallelization.
+2. At the single machine level: sequential reads and writes, better cache utilization at the file system and CPU cache levels.
 3. At the file level: more efficient encoding/decoding of values; also, better compression and vectorization - values are always of the same type within a block.
-4. Implicit skipping of empty values/NULLs.
+4. Implicit skipping of empty values/NULLs: a requirement of Google, because large collections of data are sparsely populated.
 
 As for Query Language, Dremel started with a derivative/subset of SQL, but as it evolved into BigQuery, it also added more and more features of standard SQL. This is motivated by wide adoption of SQL in industry.
 
