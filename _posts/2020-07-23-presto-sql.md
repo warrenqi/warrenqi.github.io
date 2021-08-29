@@ -5,7 +5,7 @@ date:   2020-07-23
 categories:
 ---
 
-## Summary
+# Summary
 
 Company: Facebook
 
@@ -15,11 +15,11 @@ Paper published: 2018
 
 Presto is a flexible OLAP engine: it executes queries ranging from user-facing applications with sub-second latency requirements, to multi-hour ETL jobs that aggregate or join TBs of data. Presto's main innovation is its Connector API, which lends itself access to high performance data source backends (streams, KV stores, RDBMS, HDFS). So while some other open source OLAP engines focused on optimizing queries for a specific environment (Impala, Spark), Presto decoupled the query execution optimization from the storage IO optimization, which is generalized.
 
-## Main Result(s):
+# Main Result(s):
 
 Facebook realized in early 2010s that SQL is the most accessible query language, but many systems had multiple incompatible SQL-like support. Presto unifies the "frontend" by providing ANSI SQL interface to different backends, while defining a connector interface that allows developers to integrate Presto with different backends via RPC endpoints. Presto is an extensible and flexible system. Presto's performance depends heavily on the storage backend it is connected to: Facebook for example made internal storage optimizations (Raptor) for Presto. Today, Presto is widely adopted in many organizations.
 
-## Impact:
+# Impact:
 
 Presto was originally designed to enable interactive query over Facebook's data warehouse. It is  powering most of the analytical workload (interactive + offline) at Facebook. It is also widely used in other companies in the industry. Presto is available as a managed service as AWS Athena.
 
@@ -163,7 +163,7 @@ Presto optimizes within the JVM: we know the G1 collector does not work well wit
 Presto makes use of well-known optimizations in row-column optimized data formats, and extends those optimizations to how it processes data while in memory.
 
 
-## Competitive work:
+# Competitive work:
 
 Leading open source competitors of Presto are: Hive (written by Facebook as a SQL interface over HDFS, generating MapReduce jobs), Spark, and Impala. Spark and Impala both integrate more tightly with their respective storage backends, whereas Presto was designed with backend adaptability in mind.
 

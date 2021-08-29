@@ -7,11 +7,11 @@ categories:
 
 Original paper [https://research.google/pubs/pub40801/](https://research.google/pubs/pub40801/)
 
-## Summary
+# Summary
 
 This was a very practical paper for me because the techniques were directly applicable to my work. I work on a sharded, distributed search/retrieval system at Booking. I have blended in my notes and some applicable details.
 
-## Preface
+# Preface
 
 A "coordinator" service that fans out calls to N number of "data" nodes will have to tolerate high tail latency. To counter this effect we can use redundancy: at a high level, by making redundant calls to replicas of the same data node, obtaining the first/fastest response, and discarding/ignoring the slower replicas.
 

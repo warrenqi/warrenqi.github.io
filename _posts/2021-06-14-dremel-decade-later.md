@@ -7,12 +7,12 @@ categories:
 
 - Paper link: [https://research.google/pubs/pub49489/](https://research.google/pubs/pub49489/)
 
-## Novel Idea:
+# Novel Idea:
 
 Related to [Dremel 2010]({% post_url 2021-04-29-dremel-original %}), this paper examines what Dremel ideas withstood the test of time, and what ideas changed as Dremel evolved into BigQuery.
 
 
-## Main Result(s):
+# Main Result(s):
 
 Most of the original Dremel system design withstood the test of time: some inspired major industry trends and are now considered best practices. Here are the top 5:
 
@@ -23,7 +23,7 @@ Most of the original Dremel system design withstood the test of time: some inspi
 5. Columnar storage - Dremel introduced a novel encoding for nested data that generalized columnar physical layout to relational and semi-structured data.
 
 
-## Prior Work:
+# Prior Work:
 
 Since the 2010 Dremel paper, multiple papers advanced the state of data analysis, as cited:
 
@@ -32,10 +32,10 @@ Since the 2010 Dremel paper, multiple papers advanced the state of data analysis
 - [Riffle: shuffle service for large scale data analytics](https://collaborate.princeton.edu/en/publications/riffle-optimized-shuffle-service-for-large-scale-data-analytics)
 
 
-## Content:
+# Content:
 
 
-### S2. SQL
+## S2. SQL
 
 Dremel reintroduced SQL for data analysis at Google. Before, the conventional wisdom at Google was "SQL doesn't scale", and the tradeoff was either scalability, or ease of use. Dremel combined both.
 
@@ -46,7 +46,7 @@ Dremel initially avoided query-time joins, relying on Google's internal support 
 SQL functionality in Dremel has been expanded in recent years, in particular with joins. Distributed joins across large datasets remain an active area of research. Dremel introduced a new shuffle join architecture that leverages the latest research, with Google's internal network optimizations.
 
 
-### S3. Disaggregation of storage and compute
+## S3. Disaggregation of storage and compute
 
 _Storage_
 
@@ -70,7 +70,7 @@ The new shuffle implementation:
 - Reduced the resource cost of the service by more than 20%.
 
 
-### S4. In Situ Data Analysis
+## S4. In Situ Data Analysis
 
 > In situ data processing refers to accessing data in its original place, without upfront data loading and transformation steps. In their prescient 2005 paper [22], Jim Gray et al. outlined a vision for scientific data management where a synthesis of databases and file systems enables searching petabyte-scale datasets within seconds. They saw a harbinger of this idea in the MapReduce approach pioneered by Google, and suggested that it would be generalized in the next decade.
 
@@ -89,7 +89,7 @@ Second, the ecosystem of different analytical tools allowed federation of querie
 > In some cases, including remote file systems such as Google Cloud Storage 11 and Google Drive, 12 we read the files directly. In other cases, including F1, MySQL, and BigTable, we read data through another engine’s query API. In addition to expanding the universe of joinable data, federation allows Dremel to take advantage of the unique strengths of these other systems.
 
 
-### S5. Serverless Compute
+## S5. Serverless Compute
 
 Some key points in the dynamic utilization of compute resources in Dremel/BigQuery:
 
@@ -99,7 +99,7 @@ Some key points in the dynamic utilization of compute resources in Dremel/BigQue
 4. Dynamic execution plan: for queries on data where the cardinality estimates are wrong, Dremel/BigQuery allows the query plan to dynamically change during runtime, managed by the central query coordinator, and checkpointed by the shuffle persistence layer.
 
 
-### S6. Columnar Nested Data
+## S6. Columnar Nested Data
 
 From a computer science perspective, the Dremel model of encoding data is perhaps most interesting.
 

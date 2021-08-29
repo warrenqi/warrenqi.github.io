@@ -7,16 +7,16 @@ categories:
 
 Paper link:[https://www.allthingsdistributed.com/files/p1041-verbitski.pdf](https://www.allthingsdistributed.com/files/p1041-verbitski.pdf)
 
-## Summary
+# Summary
 
 Aurora's goal is to increase throughput when moving MySQL to a cloud native environment. AWS engineers revised and revamped the storage and network layers of MySQL, to better utilize the characteristics of a distributed file system and AWS infra/layout.
 
 
-## Main Result(s):
+# Main Result(s):
 
 Aurora keeps the "front-end" of a single master MySQL, but with the new storage and network backend, system throughput is significantly improved. Replication delay is very low (in milliseconds); Read throughput scales horizontally up to the maximum limit of 15 read replicas. Write throughput, however, is limited to single master vertical scaling. The limit of total data stored is 64TB (as of 2020).
 
-## Impact:
+# Impact:
 
 The most significant impact Aurora brings is increased throughput over a default MySQL installation in AWS cloud: lower replication lag, less dilated latency distribution, higher read-scale-out throughput, shorter time to recover master.
 
@@ -78,7 +78,7 @@ Is the slightly lower quorum requirement for read to help make recovery faster? 
 
   - Reads can be made consistent by finding the Minimum Read Point LSN across all nodes. Each node in the cluster can compute this.
 
-## Follow ups:
+# Follow ups:
 
 There isn't a clear description of the dual-master Aurora yet. Is it implemented as a hot spare? Or does it use a synchronization mechanism like 2PC or just sync replication between the two master copies? Would be interesting to find out if the synchronization incurs performance penalty in trade of higher availability.
 

@@ -9,12 +9,12 @@ Paper link: [https://research.cs.wisc.edu/multifacet/papers/vldb01_pax.pdf](http
 
 Paper published: 2001
 
-## Impact:
+# Impact:
 
 PAX, as this paper originally describes in 2001, is the underlying idea for RCFiles, ORC, and Parquet. [https://en.m.wikipedia.org/wiki/RCFile](https://en.m.wikipedia.org/wiki/RCFile)
 
 
-## Summary
+# Summary
 
 Traditional database systems organize records one of two ways
 
@@ -24,13 +24,13 @@ Traditional database systems organize records one of two ways
 This paper describes a new record organization model that is *more cache-optimized than NSM*, and at the same time, more efficient than DSM *when the number of columns increases*. This paper evaluates this new model, called Partition Attributes Across (PAX).
 
 
-## Main Result(s):
+# Main Result(s):
 
 This paper demonstrates that PAX, when implemented on a prototype database system (Shore), outperforms NSM in terms of CPU cache efficiency by reducing misses 50-75% when dataset fits within memory. PAX outperforms DSM as the number of query attributes increases.
 
 
 
-## Content:
+# Content:
 
 ## S1. Introduction
 

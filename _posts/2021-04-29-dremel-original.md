@@ -5,7 +5,7 @@ date:   2021-04-29
 categories:
 ---
 
-### Commentary:
+# Commentary:
 Dremel is Google's innovative approach to query massive amounts of data, utilizing thousands of machines, with an interactive latency that was previously not possible with MapReduce. The Dremel/BigQuery style of querying distributed data in-situ became a cited influence for many other distributed systems like [Snowflake]({% post_url 2020-10-02-snowflake %}). The Protobuf record description, and its record shredding/striping and reassembly algorithm, went on to influence open source implementations like Thrift, Avro, and Parquet.
 
 - Paper link: [https://research.google/pubs/pub36632/](https://research.google/pubs/pub36632/)
@@ -13,26 +13,26 @@ Dremel is Google's innovative approach to query massive amounts of data, utilizi
 - Also: [https://blog.twitter.com/engineering/en_us/a/2013/dremel-made-simple-with-parquet.html](https://blog.twitter.com/engineering/en_us/a/2013/dremel-made-simple-with-parquet.html)
 - Date: 2006-2009
 
-### Novel Idea:
+# Novel Idea:
 Before Dremel, analytical queries running on large volumes of archival data typically relied on proprietary databases, or recently, MapReduce. Dremel is a new system that introduces a novel approach to query data in-situ, at interactive response times (a few seconds), by doing the following:
 
 1. formatting the data in an optimized physical layout,
 2. distributing the query processing across thousands of machines,
 3. outsourcing the data storage to a distributed file system (GFS).
 
-### Main Result(s):
+# Main Result(s):
 Dremel is able to query and analyze petabytes of data, and return calculated results within a few seconds, in 2006 - at Google's scale. These were, and continue to be, industry-leading results.
 
-### Prior Work:
+# Prior Work:
 BigQuery is influenced by a variety of prior research work in databases. However, many of those were non-public or not practically implemented.
 
 The paper cites several sources as inspiration for the record shredding algorith. I also see influences of [PAX (Partition Attributes Across)]({% post_url 2020-11-06-pax-weaving-data %}) as well - the idea to strike the optimal balance between row and columnar storage is not new to the year 2000.
 
 
-### Legacy:
+# Legacy:
 It is easy to see the influence Dremel/BigQuery has on later systems. The most obvious is Snowflake, which directly cites Dremel. Similar systems on the Hadoop ecosystem include Apache Impala. Apache Parquet is an open source implementation of the physical data storage specification in Dremel. Apache Arrow is a continuation of that.
 
-## Content:
+# Content:
 
 ## S2-3. Background and Data Model
 The main problem Dremel tried to solve was interactive analytical querying of data at Google. The primary need was to get access to results quickly, ideally within a few seconds, while the raw data can span billions/trillions of rows.
@@ -118,7 +118,7 @@ There are several advantages of converting the records into blocks of columnar p
 
 As for Query Language, Dremel started with a derivative/subset of SQL, but as it evolved into BigQuery, it also added more and more features of standard SQL. This is motivated by wide adoption of SQL in industry.
 
-### Tree Query Execution Architecture
+## Tree Query Execution Architecture
 
 Dremel fans out a query from a root node to leaf nodes. Non-leaf nodes compute the boundaries of where pieces of data are distributed, and splits the query into paritioned queries. Leaf nodes work on the actual data scans. Then, as the leaf nodes return sub-results back up the tree, non-leaf nodes aggregate the results.
 
@@ -129,5 +129,5 @@ There are several advantages of doing this:
 3. Resilience against failure: at the largest distribution leaf nodes, any transient or permanent failure can be quickly failed over to replicas.
 
 
-## Ideas for further work:
+# Ideas for further work:
 Google BigQuery team wrote a follow-up paper, called [Dremel - A Decade Later](https://research.google/pubs/pub49489/)

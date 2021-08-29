@@ -7,7 +7,7 @@ categories:
 
 Original paper [http://opensearchlab.otago.ac.nz/paper_10.pdf](http://opensearchlab.otago.ac.nz/paper_10.pdf)
 
-## Summary
+# Summary
 
 This is an overview of Lucene and specifically the updates to version 4. In a way, this paper distills Lucene's rich feature set into just a handful of pages. A sort of index of index. Lucene version 4 has significant improvements that I find directly applicable to my system at work. I work on a sharded, distributed search/retrieval system at Booking.
 

@@ -6,11 +6,11 @@ categories:
 ---
 
 
-## Summary
+# Summary
 
 Snowflake (2016) is a cloud-native data warehouse that's optimized for large analytical workloads, and provides ACID transactions, over structured and semi-structured data. One key innovation Snowflake offers is what it calls its "multi-cluster, shared data" architecture which improves upon the shared-nothing architecture. Within this blueprint, this paper talks about the three major components: (1) the data storage, (2) the elastic Virtual Warehouse, (3) the central coordination and management system called Cloud Services.
 
-## Impact:
+# Impact:
 
 Perhaps the most interesting impact is Snowflake, the product, has matured into a complete company providing data warehouse Platform as a Service (Paas). Snowflake Inc has a market cap of $80 billion today.
 

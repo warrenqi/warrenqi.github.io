@@ -9,28 +9,28 @@ categories:
 
 
 
-## Commentary:
+# Commentary:
 
 JEP 387 “Elastic Metaspace” – a new classroom for the Java Virtual Machine
 
 This article discusses one of my favorite topics - Java off-heap memory. Specifically, the metaspace.
 
 
-## Novel Idea:
+# Novel Idea:
 
 This article introduces a new way for JVM to allocate memory for the Metaspace, a region of memory that JVM uses to load class objects. In the past, the Metaspace was managed with a slab allocator, but under stressful patterns of class loading and unloading, the slab allocator caused high fragmentation, and its allocation granularity was not tunable. This article, and the corresponding Java feature, enables more robust and elastic management of the Metaspace.
 
 
-## Prior Work:
+# Prior Work:
 
 1. [https://bugs.openjdk.java.net/browse/JDK-8198423](https://bugs.openjdk.java.net/browse/JDK-8198423)
 2. [https://spring.io/blog/2015/12/10/spring-boot-memory-performance](https://spring.io/blog/2015/12/10/spring-boot-memory-performance)
 3. [http://trustmeiamadeveloper.com/2016/03/18/where-is-my-memory-java/](http://trustmeiamadeveloper.com/2016/03/18/where-is-my-memory-java/)
 
-## Content:
+# Content:
 
 
-### Off-Heap Memory and the Metaspace
+## Off-Heap Memory and the Metaspace
 
 The JVM manages the following in off-heap:
 
@@ -47,7 +47,7 @@ A java class is removed – unloaded – only if its loading class loader dies. 
 
 > “A class or interface may be unloaded if and only if its defining class loader may be reclaimed by the garbage collector ” [5].
 
-### Before Java 8: The Permanent Generation
+## Before Java 8: The Permanent Generation
 
 Before Java 8, class metadata lived in PermGen, which was managed by JVM GC. JEP 122 removed the PermGen: two factors coincided, (1) The advent of JRockit JVM, and (2) the Sun-JVM group internal roadmap.
 
@@ -62,7 +62,7 @@ JEP 122 shipped with JVM 8. The first Metaspace was implemented with several fea
 
 From first glance, this allocation pattern is a perfect match for class loading/unloading - leaf/related classes are allocated close to the parent classes, and the root node is de-allocated last when all children objects are unloaded, resulting in a whole slab de-allocation.
 
-### Metaspace Problems
+## Metaspace Problems
 
 - Fixed chunk sizes
 
@@ -85,7 +85,7 @@ From the JDK ticket: "So, we could get metaspace OOMs even in situations where t
 These amounts are tiny but quickly add up when dealing with swarms of small loaders. This problem mostly plagued scenarios with automatically generated class loaders, e.g., dynamic languages implemented atop Java.
 
 
-### Java 16: Metaspace evolved
+## Java 16: Metaspace evolved
 
 
 - Buddy Allocation
@@ -106,7 +106,7 @@ Very simplified, buddy allocation in Metaspace works like this:
 
 > Like a self-healing ice sheet, chunks splinter on allocation and crystallize back into larger units on deallocation. It is an excellent way of keeping fragmentation at bay even if this process repeats endlessly, e.g., in a JVM which loads and unloads tons of classes in its life time.
 
-## Results
+# Results
 
 - Code
 [https://github.com/openjdk/jdk/commit/7ba6a6bf003b810e9f48cb755abe39b1376ad3fe](https://github.com/openjdk/jdk/commit/7ba6a6bf003b810e9f48cb755abe39b1376ad3fe)
